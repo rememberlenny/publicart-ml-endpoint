@@ -30,7 +30,7 @@ app = Flask(__name__)
 # You can also use pretrained model from Keras
 # Check https://keras.io/applications/
 from keras.applications.vgg16 import VGG16
-model = VGG16(weights='imagenet')
+model = VGG16(weights='imagenet', include_top=False)
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
@@ -44,7 +44,7 @@ def model_predict(img_path, model):
 
     # Be careful how your trained model deals with the input
     # otherwise, it won't make correct prediction!
-    x = preprocess_input(x, mode='caffe')
+    x = preprocess_input(x)
 
     preds = model.predict(x)
     return preds
@@ -68,14 +68,16 @@ def upload():
             basepath, 'uploads', secure_filename(f.filename))
         f.save(file_path)
 
-        # Make prediction
         preds = model_predict(file_path, model)
+        return preds
+        # # Make prediction
+        # preds = model_predict(file_path, model)
 
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        result = str(pred_class[0][0][1])               # Convert to string
-        return result
+        # # Process your result for human
+        # # pred_class = preds.argmax(axis=-1)            # Simple argmax
+        # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
+        # result = str(pred_class[0][0][1])               # Convert to string
+        # return result
     return None
 
 
