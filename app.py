@@ -30,7 +30,7 @@ app = Flask(__name__)
 # You can also use pretrained model from Keras
 # Check https://keras.io/applications/
 from keras.applications.vgg16 import VGG16
-model = VGG16(weights='imagenet', include_top=False)
+model = VGG16(weights='imagenet')
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
