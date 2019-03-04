@@ -68,7 +68,17 @@ def upload():
             basepath, 'uploads', secure_filename(f.filename))
         f.save(file_path)
 
-        preds = model_predict(file_path, model)
+        vgg16_feature = model_predict(file_path, model)
+        
+        vgg16_feature_np = np.array(vgg16_feature)
+        vgg16_feature_list.append(vgg16_feature_np.flatten())
+
+        vgg16_feature_list_np = np.array(vgg16_feature_list)
+        np.set_printoptions(threshold=np.nan)
+
+        np_array_to_list = vgg16_feature_list_np.tolist()
+        json_string = json.dumps({"data": np_array_to_list[0]})
+        
         return preds
         # # Make prediction
         # preds = model_predict(file_path, model)
