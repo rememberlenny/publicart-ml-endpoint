@@ -1,0 +1,7 @@
+{
+  "name": "Image Feature Extractor",
+  "description": "VGG 16 Feature Extractor",
+  "repository": "https://github.com/rememberlenny/publicart-ml-endpoint",
+  "logo": "https://www.publicart.io/logo-transparent.png",
+  "keywords": ["machine learning", "flask", "static"]
+}

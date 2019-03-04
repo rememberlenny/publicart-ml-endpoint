@@ -60,6 +60,11 @@ Open http://localhost:5000 and have fun. :smiley:
 
 ------------------
 
+### Deployment
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rememberlenny/publicart-ml-endpoint/tree/master)
+
+
 ### Run the app
 
 Run the script and hide it in background with `tmux` or `screen`.
