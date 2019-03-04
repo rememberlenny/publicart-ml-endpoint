@@ -3,6 +3,7 @@ from __future__ import division, print_function
 import sys
 import os
 import glob
+import json
 import re
 import numpy as np
 
@@ -71,15 +72,20 @@ def upload():
         f.save(file_path)
 
         vgg16_feature = model_predict(file_path, model)
-        
-        vgg16_feature_np = np.array(vgg16_feature)
 
-        np.set_printoptions(threshold=np.nan)
+        vgg16_feature_np = np.array(vgg16_feature)
+        print(vgg16_feature_np)
+        print('112')
+        # np.set_printoptions(threshold=np.nan)
 
         np_array_to_list = vgg16_feature_np.tolist()
+        print(np_array_to_list)
+        print('1231')
+        print(np_array_to_list)
+        print('223')
         json_string = json.dumps({"data": np_array_to_list})
-        
-        return preds
+
+        return json_string
         # # Make prediction
         # preds = model_predict(file_path, model)
 
