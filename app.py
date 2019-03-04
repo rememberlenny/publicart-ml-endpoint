@@ -20,17 +20,17 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/your_model.h5'
+MODEL_PATH = 'models/vgg16_weights.h5'
 
 # Load your trained model
-# model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
+model = load_model(MODEL_PATH)
+model._make_predict_function()          # Necessary
 # print('Model loaded. Start serving...')
 
 # You can also use pretrained model from Keras
 # Check https://keras.io/applications/
-from keras.applications.resnet50 import ResNet50
-model = ResNet50(weights='imagenet')
+from keras.applications.vgg16 import VGG16
+# model = VGG16(weights='imagenet', include_top=False)
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
