@@ -5,6 +5,8 @@
 
 > An endpoint for uploading images and getting back VGG16 image feature embeddings
 
+<img width="845" alt="Screen Shot 2019-09-21 at 4 45 18 PM" src="https://user-images.githubusercontent.com/1332366/65379012-52da8f00-dc8f-11e9-877c-98079a0c8a7a.png">
+
 ------------------
 
 ## Docker Installation
